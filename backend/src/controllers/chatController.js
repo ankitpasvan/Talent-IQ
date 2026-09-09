@@ -1,15 +1,25 @@
-import { chatClient } from "../lib/stream.js";
+import { chatClient, upsertStreamUser } from "../lib/stream.js";
 
 export async function getStreamToken(req, res) {
   try {
-    // use clerkId for Stream (not mongodb _id)=> it should match the id we have in the stream dashboard
-    const token = chatClient.createToken(req.user.clerkId);
+    const clerkId = req.user.clerkId;
+    const userName = req.user.name || "Anonymous";
+    const userImage = req.user.profileImage || req.user.image || "";
+
+    // Ensure user exists in Stream chat
+    await upsertStreamUser({
+      id: clerkId,
+      name: userName,
+      image: userImage,
+    });
+
+    const token = chatClient.createToken(clerkId);
 
     res.status(200).json({
       token,
-      userId: req.user.clerkId,
-      userName: req.user.name,
-      userImage: req.user.image,
+      userId: clerkId,
+      userName,
+      userImage,
     });
   } catch (error) {
     console.log("Error in getStreamToken controller:", error.message);

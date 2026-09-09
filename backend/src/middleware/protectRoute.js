@@ -1,5 +1,6 @@
-import { requireAuth } from "@clerk/express";
+import { requireAuth, clerkClient } from "@clerk/express";
 import User from "../models/User.js";
+import { upsertStreamUser } from "../lib/stream.js";
 
 export const protectRoute = [
   requireAuth(),
@@ -10,7 +11,47 @@ export const protectRoute = [
       if (!clerkId) return res.status(401).json({ message: "Unauthorized - invalid token" });
 
       // find user in db by clerk ID
-      const user = await User.findOne({ clerkId });
+      let user = await User.findOne({ clerkId });
+
+      // JIT (Just-In-Time) User Provisioning / Self-Healing Sync:
+      // If user is authenticated in Clerk but not yet recorded in MongoDB (e.g. Inngest
+      // webhook was missed, local dev, or signup preceded webhook), fetch user from Clerk
+      // and safely upsert into MongoDB and Stream.
+      if (!user) {
+        try {
+          const clerkUser = await clerkClient.users.getUser(clerkId);
+          if (clerkUser) {
+            const email = clerkUser.emailAddresses?.[0]?.emailAddress || "";
+            const name =
+              `${clerkUser.firstName || ""} ${clerkUser.lastName || ""}`.trim() ||
+              clerkUser.username ||
+              "Anonymous Developer";
+            const profileImage = clerkUser.imageUrl || "";
+
+            user = await User.findOneAndUpdate(
+              { clerkId },
+              {
+                $setOnInsert: {
+                  clerkId,
+                  email,
+                  name,
+                  profileImage,
+                },
+              },
+              { upsert: true, new: true }
+            );
+
+            // Sync with Stream
+            await upsertStreamUser({
+              id: clerkId,
+              name,
+              image: profileImage,
+            });
+          }
+        } catch (syncError) {
+          console.error("Error auto-syncing Clerk user in protectRoute:", syncError);
+        }
+      }
 
       if (!user) return res.status(404).json({ message: "User not found" });
 

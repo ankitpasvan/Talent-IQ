@@ -6,30 +6,34 @@ function WelcomeSection({ onCreateSession }) {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-6 py-16">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 bg-base-100/70 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-base-300 shadow-sm">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <SparklesIcon className="w-6 h-6 text-white" />
+            <div className="flex items-center gap-3 mb-2.5">
+              <div className="size-10 sm:size-12 rounded-2xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-md shrink-0">
+                <SparklesIcon className="size-5 sm:size-6 text-white" />
               </div>
-              <h1 className="text-5xl font-black bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                Welcome back, {user?.firstName || "there"}!
-              </h1>
+              <div>
+                <span className="text-xs uppercase tracking-wider font-bold text-primary">
+                  Dashboard Overview
+                </span>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-base-content tracking-tight">
+                  Welcome back, {user?.firstName || user?.username || "Developer"}!
+                </h1>
+              </div>
             </div>
-            <p className="text-xl text-base-content/60 ml-16">
-              Ready to level up your coding skills?
+            <p className="text-xs sm:text-sm text-base-content/65 max-w-lg mt-1 sm:ml-15">
+              Ready to conduct an interview or practice collaborative algorithms in real time?
             </p>
           </div>
+
           <button
             onClick={onCreateSession}
-            className="group px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-2xl transition-all duration-200 hover:opacity-90"
+            className="group px-6 py-3.5 bg-primary hover:bg-primary/90 text-primary-content rounded-2xl transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-3 cursor-pointer shrink-0 font-bold text-sm sm:text-base"
           >
-            <div className="flex items-center gap-3 text-white font-bold text-lg">
-              <ZapIcon className="w-6 h-6" />
-              <span>Create Session</span>
-              <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </div>
+            <ZapIcon className="size-5" />
+            <span>Create Session</span>
+            <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>
@@ -38,3 +42,4 @@ function WelcomeSection({ onCreateSession }) {
 }
 
 export default WelcomeSection;
+
