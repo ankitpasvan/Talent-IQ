@@ -1,5 +1,7 @@
 import express from "express";
 import path from "path";
+import { fileURLToPath } from "url";
+import fs from "fs";
 import cors from "cors";
 import { serve } from "inngest/express";
 import { clerkMiddleware } from "@clerk/express";
@@ -13,7 +15,8 @@ import sessionRoutes from "./routes/sessionRoute.js";
 
 const app = express();
 
-const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // middleware
 app.use(express.json());
@@ -51,10 +54,15 @@ app.get("/health", (req, res) => {
 
 // make our app ready for deployment
 if (ENV.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  const frontendDistPath = path.resolve(__dirname, "../../frontend/dist");
+  app.use(express.static(frontendDistPath));
 
   app.get("/{*any}", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    if (fs.existsSync(path.join(frontendDistPath, "index.html"))) {
+      res.sendFile(path.join(frontendDistPath, "index.html"));
+    } else {
+      res.status(404).send("Frontend build not found. Please run build script.");
+    }
   });
 }
 
