@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Talent IQ - Senior Software Engineer Interview Preparation Guide</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    @page {
+      size: A4;
+      margin: 18mm 14mm 18mm 14mm;
+      @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #64748b;
+      }
+      @bottom-left {
+        content: "Talent IQ — Senior Full-Stack Interview Guide";
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #64748b;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.55;
+      color: #1e293b;
+      background-color: #ffffff;
+    }
+
+    .cover-page {
+      page-break-after: always;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 40px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+    }
+
+    .cover-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: #3b82f6;
+      color: #ffffff;
+      font-size: 9pt;
+      font-weight: 700;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .cover-title {
+      font-size: 28pt;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .cover-subtitle {
+      font-size: 13pt;
+      font-weight: 500;
+      color: #475569;
+      line-height: 1.4;
+      margin-bottom: 40px;
+    }
+
+    .cover-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 2px solid #cbd5e1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      font-size: 9pt;
+      color: #334155;
+    }
+
+    .cover-meta div strong {
+      color: #0f172a;
+      display: block;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    h1, h2, h3, h4 {
+      color: #0f172a;
+      font-weight: 700;
+      page-break-after: avoid;
+    }
+
+    h1 {
+      font-size: 16pt;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 6px;
+      margin-top: 26px;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      font-size: 12.5pt;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: #1e3a8a;
+    }
+
+    h3 {
+      font-size: 10.5pt;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      color: #2563eb;
+    }
+
+    p {
+      margin-bottom: 9px;
+    }
+
+    ul, ol {
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    .avoid-break {
+      page-break-inside: avoid;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px 0;
+      font-size: 8.5pt;
+      page-break-inside: avoid;
+    }
+
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 6px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    code, pre {
+      font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+    }
+
+    code {
+      font-size: 8pt;
+      background-color: #f1f5f9;
+      padding: 1px 4px;
+      border-radius: 4px;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+    }
+
+    pre {
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 8pt;
+      line-height: 1.45;
+      overflow-x: auto;
+      margin: 8px 0 12px 0;
+      page-break-inside: avoid;
+    }
+
+    .callout {
+      border-left: 4px solid #3b82f6;
+      background-color: #eff6ff;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 10px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+
+    .callout-hinglish {
+      border-left: 4px solid #8b5cf6;
+      background-color: #f5f3ff;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0 10px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+
+    .callout-speech {
+      border-left: 4px solid #10b981;
+      background-color: #ecfdf5;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0 12px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+
+    .callout-speech strong {
+      color: #065f46;
+    }
+
+    .callout-warning {
+      border-left: 4px solid #f59e0b;
+      background-color: #fffbeb;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 10px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .tag-easy { background: #dcfce7; color: #166534; }
+    .tag-medium { background: #fef9c3; color: #854d0e; }
+    .tag-hard { background: #fee2e2; color: #991b1b; }
+    .tag-blue { background: #dbeafe; color: #1e40af; }
+    .tag-purple { background: #f3e8ff; color: #6b21a8; }
+
+    .checklist-item {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 6px;
+      font-size: 9pt;
+    }
+
+    .checklist-item input {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER PAGE -->
+  <div class="cover-page">
+    <div class="cover-badge">Engineering Interview Preparation Kit</div>
+    <div class="cover-title">TALENT IQ</div>
+    <div class="cover-subtitle">
+      Comprehensive Technical Architecture, Codeflow, System Design & Interview Mastery Guide
+    </div>
+
+    <p style="font-size: 10pt; color: #475569; max-width: 580px; line-height: 1.6;">
+      This exhaustive technical dossier provides deep architectural insights, codeflow tracing, design decision defenses, cross-questioning battlecards, and verbatim interview scripts based strictly on the production codebase.
+    </p>
+
+    <div class="cover-meta">
+      <div>
+        <strong>Candidate / Author</strong>
+        Ankit Pasvan
+      </div>
+      <div>
+        <strong>Role Target</strong>
+        Senior Full-Stack Software Engineer
+      </div>
+      <div>
+        <strong>Primary Architecture</strong>
+        React 19, Node.js, Express 5, MongoDB, WebRTC
+      </div>
+      <div>
+        <strong>Document Version</strong>
+        2.0 (Post-Stabilization & Production Audit)
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="page-break"></div>
+  <h1>Document Index</h1>
+  <table style="margin-top: 14px;">
+    <thead>
+      <tr>
+        <th style="width: 15%;">Section</th>
+        <th style="width: 65%;">Topic</th>
+        <th style="width: 20%;">Focus Area</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>01</td><td>Project Overview & Core Value Proposition</td><td>Problem Statement & Solution</td></tr>
+      <tr><td>02</td><td>The 30–60 Second Elevator Pitch</td><td>Verbatim Script</td></tr>
+      <tr><td>03</td><td>Full-Stack Tech Stack Breakdown</td><td>Why X over Y, Roles</td></tr>
+      <tr><td>04</td><td>System Architecture & Communications</td><td>Component Diagram & Topology</td></tr>
+      <tr><td>05</td><td>Complete End-to-End Request Lifecycles</td><td>Browser to MongoDB Trace</td></tr>
+      <tr><td>06</td><td>Key Features & Step-by-Step Code Flow</td><td>Exact Files & Methods</td></tr>
+      <tr><td>07</td><td>Honest Contribution Boundaries</td><td>Custom vs. SDKs</td></tr>
+      <tr><td>08</td><td>Important Technical Concepts (Hinglish + English)</td><td>JIT, Bearer, WebRTC</td></tr>
+      <tr><td>09</td><td>Database Schema & Query Performance</td><td>Collections, Indexes, Relationships</td></tr>
+      <tr><td>10</td><td>REST API Specification & Protocols</td><td>Contracts, HTTP Statuses</td></tr>
+      <tr><td>11</td><td>Authentication & Security Deep-Dive</td><td>Clerk JWT, JIT Provisioning, CORS</td></tr>
+      <tr><td>12</td><td>Error Handling, Edge Cases & Resilience</td><td>Failure Mode Matrix</td></tr>
+      <tr><td>13</td><td>Performance Bottlenecks & Scalability Plan</td><td>Redis, Caching, Bundle Size</td></tr>
+      <tr><td>14</td><td>Testing Strategy & Automated Quality Assurance</td><td>Test Matrix & Coverage</td></tr>
+      <tr><td>15</td><td>Deployment Pipeline & Environment Ops</td><td>Docker, PM2, Cloud</td></tr>
+      <tr><td>16</td><td>Brutal Weakness Analysis & Defenses</td><td>CRDT, Direct API calls, Polling</td></tr>
+      <tr><td>17</td><td>The 90-Second Master Walkthrough Speech</td><td>Verbatim Developer Script</td></tr>
+      <tr><td>18</td><td>Likely Interview Questions & Answers</td><td>Beginner to Tricky</td></tr>
+      <tr><td>19</td><td>Deep-Dive Cross-Questioning Battlecards</td><td>"Why?" & "How?" Follow-ups</td></tr>
+      <tr><td>20</td><td>Top 20 Things You Must Know Checklist</td><td>Revision Checklist</td></tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 1 & 2 -->
+  <div class="page-break"></div>
+  <h1>01. Project Overview</h1>
+  <p><strong>Talent IQ</strong> is a full-stack, real-time technical interview and pair-programming platform designed to streamline remote developer assessments. It unites high-stakes video conferencing, multi-language code editing, algorithmic challenge suites, and isolated sandboxed execution into a single, cohesive browser environment.</p>
+
+  <h2>The Problem It Solves</h2>
+  <p>Technical interviewing in most organizations is fragmented across incompatible software:</p>
+  <ul>
+    <li><strong>Video Conferencing:</strong> Zoom, Google Meet, or Microsoft Teams.</li>
+    <li><strong>Code Scratchpads:</strong> Google Docs, generic online editors, or CoderPad.</li>
+    <li><strong>Compilation & Testing:</strong> Local terminals or third-party web compilers.</li>
+  </ul>
+  <p>This workflow causes friction: candidates context-switch across 3–4 tabs, interviewers cannot verify compiler output deterministically, and candidate code is vulnerable to copy-paste leaks. Talent IQ solves this by embedding <strong>WebRTC video/audio, low-latency messaging, a Monaco editor, and automated test runners inside a single synchronized room.</strong></p>
+
+  <h2>Target Users</h2>
+  <ul>
+    <li><strong>Hiring Teams & Technical Recruiters:</strong> Conducting live, reliable technical screening interviews with zero software download requirements for candidates.</li>
+    <li><strong>Engineering Candidates & Peer Developers:</strong> Practicing complex Data Structures & Algorithms (DSA) solo or in realistic 1-on-1 mock peer interviews.</li>
+  </ul>
+
+  <h1>02. The 30–60 Second Elevator Pitch</h1>
+  <div class="callout-speech">
+    <strong>Speak this naturally in an interview:</strong><br>
+    <em>"Talent IQ is a collaborative interview platform that bridges the gap between video conferencing and cloud coding environments. I built it using React 19, Node.js, Express 5, and MongoDB, integrating Stream SDK for low-latency WebRTC video and chat, and Monaco Editor for a VSCode-like editing surface. The system eliminates tab switching by letting an interviewer and candidate jump into a locked 1-on-1 room with live video, persistent messaging, and isolated code compilation via the Piston engine. To make the auth bulletproof, I architected a self-healing Just-In-Time provisioning middleware that eliminates user desynchronization between Clerk and our database."</em>
+  </div>
+
+  <!-- SECTION 3: TECH STACK -->
+  <div class="page-break"></div>
+  <h1>03. Complete Tech Stack Analysis</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Technology</th>
+        <th>Layer</th>
+        <th>Version</th>
+        <th>Why Chosen / Role in Codebase</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>React</strong></td>
+        <td>Frontend</td>
+        <td>19.1.1</td>
+        <td>Declarative component architecture; provides latest concurrent rendering performance and tight integration with TanStack Query.</td>
+      </tr>
+      <tr>
+        <td><strong>Vite</strong></td>
+        <td>Build Tool</td>
+        <td>7.1.7</td>
+        <td>Instant Hot Module Replacement (HMR) via native ES modules; builds production chunks significantly faster than Webpack.</td>
+      </tr>
+      <tr>
+        <td><strong>Node.js & Express</strong></td>
+        <td>Backend API</td>
+        <td>5.1.0</td>
+        <td>Express 5 provides native asynchronous error handling in route handlers and modern wildcard path routing without middleware unhandled rejections.</td>
+      </tr>
+      <tr>
+        <td><strong>MongoDB & Mongoose</strong></td>
+        <td>Database</td>
+        <td>8.19.1</td>
+        <td>Document-based persistence suited for evolving session schemas, participant references, and dynamic problem metadata.</td>
+      </tr>
+      <tr>
+        <td><strong>Clerk</strong></td>
+        <td>Authentication</td>
+        <td>5.53.3 (Client)<br>1.7.41 (Server)</td>
+        <td>Eliminates password storage liability. Issues cryptographically signed RS256 JWTs with multi-session management and OAuth support.</td>
+      </tr>
+      <tr>
+        <td><strong>Stream Video & Chat SDK</strong></td>
+        <td>Real-Time Media</td>
+        <td>1.24.0 (Video)<br>9.24.0 (Chat)</td>
+        <td>Enterprise WebRTC SFU infrastructure. Avoids high-maintenance peer-to-peer mesh networks and guarantees high-definition video with low-latency chat.</td>
+      </tr>
+      <tr>
+        <td><strong>Monaco Editor</strong></td>
+        <td>Code Editor</td>
+        <td>4.7.0</td>
+        <td>The core editing engine behind VSCode. Provides syntax highlighting, auto-indentation, line markers, and keyboard shortcuts.</td>
+      </tr>
+      <tr>
+        <td><strong>Piston API</strong></td>
+        <td>Code Runner</td>
+        <td>v2 REST</td>
+        <td>Ephemerally executes untrusted user-submitted code in isolated Docker cgroup containers without endangering our application servers.</td>
+      </tr>
+      <tr>
+        <td><strong>TanStack Query</strong></td>
+        <td>State Cache</td>
+        <td>5.90.5</td>
+        <td>Manages server-state synchronization, automatic retries, cache invalidation, and background polling (<code>refetchInterval: 5000</code>).</td>
+      </tr>
+      <tr>
+        <td><strong>Tailwind CSS + DaisyUI</strong></td>
+        <td>Styling</td>
+        <td>4.1.14 / 5.3.10</td>
+        <td>Tailwind v4 zero-runtime CSS compiler combined with DaisyUI design token components for clean accessible themes.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 4: ARCHITECTURE -->
+  <div class="page-break"></div>
+  <h1>04. System Architecture & Topology</h1>
+  <p>The platform follows a decoupled client-server architecture with specialized cloud delegates for media streaming, identity authentication, and remote code execution.</p>
+
+  <pre>
+                                +---------------------------------------------+
+                                |               REACT 19 CLIENT               |
+                                |  (Monaco Editor + Stream Video / Chat SDK)  |
+                                +-------+---------------------+---------------+
+                                        |                     |
+                   Clerk JWT Bearer     | Axios REST          | Direct Client Fetch
+                   Header (Interceptors)| Calls               | (Piston Sandbox)
+                                        v                     v
+                               +-----------------+   +-------------------------+
+                               |  EXPRESS 5 API  |   | Piston Execution Engine |
+                               | (protectRoute)  |   | (Docker Container Pool) |
+                               +---+---------+---+   +-------------------------+
+                                   |         |
+                     Mongoose ORM  |         | Stream Node SDK
+                                   v         v
+                             +----------+  +---------------------------+
+                             | MongoDB  |  | Stream WebRTC / WebSocket |
+                             |  Atlas   |  | Cloud Infrastructure      |
+                             +----------+  +---------------------------+
+  </pre>
+
+  <h2>Directory Structure & Responsibilities</h2>
+  <ul>
+    <li><code>backend/src/server.js</code>: Express 5 bootstrap, dynamic multi-origin CORS, route registration, and static SPA serving in production.</li>
+    <li><code>backend/src/middleware/protectRoute.js</code>: Gatekeeper enforcing Clerk JWT verification, containing JIT self-healing database provisioning logic.</li>
+    <li><code>backend/src/controllers/sessionController.js</code>: Session lifecycle engine managing room creation, participant joining rules, and Stream cleanup.</li>
+    <li><code>backend/src/controllers/chatController.js</code>: Token factory generating signed Stream user tokens via server-side credentials.</li>
+    <li><code>frontend/src/lib/axios.js</code>: Centralized HTTP client equipped with request interceptor injecting Clerk JWT Bearer tokens.</li>
+    <li><code>frontend/src/hooks/useStreamClient.js</code>: Custom React hook orchestrating WebRTC call initiation, participant state, and chat channel binding.</li>
+    <li><code>frontend/src/pages/SessionPage.jsx</code>: Core collaborative room page integrating Monaco editor, output console, problem statement, and video grid.</li>
+  </ul>
+
+  <!-- SECTION 5: LIFECYCLES -->
+  <div class="page-break"></div>
+  <h1>05. Complete End-to-End Request Lifecycles</h1>
+
+  <h2>Flow 1: DSA Question Selection & Session Creation</h2>
+  <ol>
+    <li><strong>User Trigger:</strong> On <code>DashboardPage.jsx</code>, user clicks "Create Session". <code>CreateSessionModal</code> opens.</li>
+    <li><strong>Selection:</strong> User filters by difficulty ("Medium") or searches "Two Sum". Problem data is selected from <code>frontend/src/data/problems.js</code>.</li>
+    <li><strong>Mutation Trigger:</strong> User clicks "Create Session". <code>createSessionMutation.mutate(...)</code> is dispatched via TanStack Query.</li>
+    <li><strong>Axios Interceptor:</strong> <code>axiosInstance.interceptors.request</code> intercepts outgoing request, calls <code>await window.Clerk.session.getToken()</code>, and assigns <code>config.headers.Authorization = "Bearer &lt;JWT&gt;"</code>.</li>
+    <li><strong>Backend Ingestion:</strong> Express route <code>POST /api/sessions</code> invokes <code>protectRoute</code> middleware.</li>
+    <li><strong>Clerk Signature Verification:</strong> <code>requireAuth()</code> verifies RS256 token against Clerk JWKS public keys. Extracts <code>req.auth().userId</code>.</li>
+    <li><strong>JIT Database Provisioning:</strong> Middleware queries <code>User.findOne({ clerkId })</code>. If null, it queries Clerk Admin API (<code>clerkClient.users.getUser</code>), extracts email and profile data, executes an atomic upsert in MongoDB, and calls <code>upsertStreamUser</code>. Attaches document to <code>req.user</code>.</li>
+    <li><strong>Controller Execution (<code>sessionController.js:createSession</code>):</strong>
+      <ul>
+        <li>Generates unique <code>callId</code> (<code>session_${Date.now()}_...</code>).</li>
+        <li>Inserts session document into MongoDB (<code>host: req.user._id</code>, <code>status: "active"</code>).</li>
+        <li>Calls Stream Video API: <code>streamClient.video.call("default", callId).getOrCreate(...)</code>.</li>
+        <li>Calls Stream Chat API: <code>chatClient.channel("messaging", callId, ...).create()</code>.</li>
+      </ul>
+    </li>
+    <li><strong>Response & Client Transition:</strong> Backend returns HTTP 201 with session object. React Query triggers <code>onSuccess</code>, navigating user to <code>/session/:id</code>.</li>
+  </ol>
+
+  <h2>Flow 2: Remote Sandboxed Code Execution</h2>
+  <ol>
+    <li><strong>User Action:</strong> User writes JavaScript in Monaco Editor and clicks "Run Code".</li>
+    <li><strong>State Lock:</strong> Client sets <code>isRunning = true</code> to disable the Run button and prevent double execution.</li>
+    <li><strong>Direct Sandbox Call (<code>frontend/src/lib/piston.js</code>):</strong> Calls <code>POST https://emkc.org/api/v2/piston/execute</code> with language runtime version and code payload.</li>
+    <li><strong>Execution:</strong> Piston daemon spins up an ephemeral container, runs code, and returns stdout/stderr.</li>
+    <li><strong>Comparison (<code>ProblemPage.jsx</code>):</strong> Output string is normalized (trimming whitespace, brackets, commas) and evaluated against <code>expectedOutput</code>.</li>
+    <li><strong>Feedback:</strong> If passed, triggers <code>canvas-confetti</code> and success toast; displays formatted logs in <code>OutputPanel.jsx</code>.</li>
+  </ol>
+
+  <!-- SECTION 6 & 7 -->
+  <div class="page-break"></div>
+  <h1>06. Important Features & Codeflow Summary</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Frontend Components</th>
+        <th>Backend Handlers</th>
+        <th>Database / External APIs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Session Creation</strong></td>
+        <td><code>CreateSessionModal.jsx</code><br><code>useSessions.js</code></td>
+        <td><code>protectRoute.js</code><br><code>sessionController.createSession</code></td>
+        <td>MongoDB <code>Session.create()</code><br>Stream Video + Chat APIs</td>
+      </tr>
+      <tr>
+        <td><strong>Room Access Control</strong></td>
+        <td><code>SessionPage.jsx</code><br><code>ActiveSessions.jsx</code></td>
+        <td><code>sessionController.joinSession</code></td>
+        <td>MongoDB <code>Session.findById()</code><br>Rejects if <code>participant != null</code> (409)</td>
+      </tr>
+      <tr>
+        <td><strong>WebRTC Video Call</strong></td>
+        <td><code>VideoCallUI.jsx</code><br><code>useStreamClient.js</code></td>
+        <td><code>chatController.getStreamToken</code></td>
+        <td>Stream WebRTC SFU Cloud<br><code>chatClient.createToken()</code></td>
+      </tr>
+      <tr>
+        <td><strong>Code Execution</strong></td>
+        <td><code>CodeEditorPanel.jsx</code><br><code>OutputPanel.jsx</code></td>
+        <td>Direct Client Delegation</td>
+        <td>Piston Remote Docker API (<code>/api/v2/piston</code>)</td>
+      </tr>
+      <tr>
+        <td><strong>Session Termination</strong></td>
+        <td><code>SessionPage.jsx</code> (Host Only)</td>
+        <td><code>sessionController.endSession</code></td>
+        <td>Stream <code>call.delete()</code> + <code>channel.delete()</code><br>MongoDB <code>status = "completed"</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>07. Honest Contribution Boundaries</h1>
+  <div class="callout-warning">
+    <strong>Interview Authenticity Principle:</strong> Never claim you built raw WebRTC protocols or Docker virtualization daemons from scratch. Frame your engineering around full-stack integration, architecture resilience, and edge-case resolution.
+  </div>
+
+  <h2>What You Custom-Engineered:</h2>
+  <ul>
+    <li><strong>Self-Healing JIT Middleware Architecture:</strong> Diagnosed and eliminated the critical "User not found" bug by engineering Just-In-Time Clerk user auto-provisioning directly in <code>protectRoute.js</code>.</li>
+    <li><strong>Client-Side Bearer Transport Interceptors:</strong> Built the request interceptor pipeline in <code>axios.js</code> to extract Clerk JWTs dynamically, solving cross-origin cookie drop issues.</li>
+    <li><strong>Session Lifecycle State Machine & Access Control:</strong> Designed the 2-participant locking mechanism, host authorization enforcement, and coordinated teardown logic across database and media providers.</li>
+    <li><strong>Interactive DSA Studio (UX Overhaul):</strong> Replaced basic dropdowns with <code>CreateSessionModal.jsx</code>, featuring real-time search, difficulty tabs, card selection states, and live test case previews.</li>
+    <li><strong>Responsive Multi-Panel Workspace:</strong> Engineered dynamic resize direction handling (horizontal on desktop, vertical on mobile) in <code>ProblemPage.jsx</code> and <code>SessionPage.jsx</code>.</li>
+  </ul>
+
+  <h2>What is Managed by External SDKs:</h2>
+  <ul>
+    <li><strong>WebRTC Media Mesh:</strong> Handled by Stream Video SDK. You configured tokens and session IDs; Stream handled WebRTC ICE candidate gathering and SFU media routing.</li>
+    <li><strong>Identity Cryptography:</strong> Handled by Clerk. You verified JWTs; Clerk handled hashing, OAuth, and key rotation.</li>
+    <li><strong>Sandboxed Compiler Host:</strong> Handled by Piston. You formatted requests and evaluated outputs; Piston managed container lifecycles.</li>
+  </ul>
+
+  <!-- SECTION 8: TECHNICAL CONCEPTS -->
+  <div class="page-break"></div>
+  <h1>08. Important Technical Concepts</h1>
+
+  <h2>Concept 1: Just-In-Time (JIT) Self-Healing User Provisioning</h2>
+  <div class="callout-hinglish">
+    <strong>Hinglish Explanation:</strong><br>
+    Normal flow me jab user signup karta hai, Clerk ek webhook event (<code>clerk/user.created</code>) Inngest ko bhejta hai taaki user DB me save ho sake. Lekin local development me ya agar webhook network me drop ho gaya, toh MongoDB me user kabhi banta hi nahi. Result? Jab user session create karta hai, toh backend bolta hai "User not found". Humne iska solution nikala JIT Provisioning se: jaise hi user authenticated request bhejta hai aur DB me document nahi milta, middleware on-the-fly Clerk Admin API se profile fetch karke DB aur Stream me upsert kar deta hai. App kabhi fail nahi hoti!
+  </div>
+  <div class="callout-speech">
+    <strong>Interview-Ready Answer:</strong><br>
+    <em>"Instead of relying strictly on asynchronous webhooks which can fail or be dropped during network partitions, I implemented a Just-In-Time provisioning pattern in our Express authentication middleware. When a request carrying a cryptographically valid Clerk JWT arrives, the middleware checks MongoDB. If the user record is missing, it queries the Clerk Admin API, extracts user attributes, and performs an atomic upsert into MongoDB and Stream before attaching the record to the request object. This ensures our distributed auth state is completely self-healing."</em>
+  </div>
+
+  <h2>Concept 2: Stateless Bearer Token Transport vs. Cross-Origin Cookies</h2>
+  <div class="callout-hinglish">
+    <strong>Hinglish Explanation:</strong><br>
+    Frontend <code>localhost:5173</code> par chal raha hai aur backend <code>localhost:3000</code> par. Jab frontend alag port par hota hai, browsers cross-origin cookies ko block ya partition kar dete hain (especially Safari aur Chrome incognito me). Isliye humne Axios interceptor lagaya jo har request ke <code>Authorization</code> header me Bearer JWT daal deta hai. Ye 100% stateless aur foolproof hai.
+  </div>
+  <div class="callout-speech">
+    <strong>Interview-Ready Answer:</strong><br>
+    <em>"When developing distributed or decoupled SPAs, relying solely on ambient credentials like cookies introduces cross-origin partitioned cookie issues and strict SameSite blocking in modern privacy-focused browsers. I configured an Axios request interceptor that retrieves the active session JWT from Clerk's SDK and explicitly transmits it via the standard <code>Authorization: Bearer &lt;token&gt;</code> header. This guarantees stateless, reliable authentication across disparate ports and domain origins."</em>
+  </div>
+
+  <h2>Concept 3: Selective Forwarding Unit (SFU) vs. P2P Mesh WebRTC</h2>
+  <div class="callout-hinglish">
+    <strong>Hinglish Explanation:</strong><br>
+    Agar hum raw WebRTC use karein (Mesh architecture), toh har user ko doosre user ko direct video stream bhejna padta hai. 2 users me theek hai, lekin network fluctuating ho toh CPU aur bandwidth crash ho jata hai. Stream SDK SFU (Selective Forwarding Unit) use karta hai: video pehle ek central media server par jata hai aur wahan se optimize hoke receive hota hai.
+  </div>
+  <div class="callout-speech">
+    <strong>Interview-Ready Answer:</strong><br>
+    <em>"We utilized Stream's SDK because it operates on a Selective Forwarding Unit (SFU) architecture rather than a peer-to-peer mesh. In an SFU architecture, each client uploads their encrypted media stream once to a central edge server, which then routes it to other room participants. This minimizes client-side CPU usage and bandwidth consumption, handling varying bitrates dynamically."</em>
+  </div>
+
+  <!-- SECTION 9: DATABASE -->
+  <div class="page-break"></div>
+  <h1>09. Database Architecture & Models</h1>
+  <p>The database layer uses <strong>MongoDB Atlas</strong> managed through <strong>Mongoose 8</strong>. It maintains two primary collections: <code>users</code> and <code>sessions</code>.</p>
+
+  <h2>Collection Schemas</h2>
+  <h3>1. User Collection (<code>backend/src/models/User.js</code>)</h3>
+  <pre>
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  profileImage: { type: String, default: "" },
+  clerkId: { type: String, required: true, unique: true }
+}, { timestamps: true });
+  </pre>
+  <ul>
+    <li><strong>Indexes:</strong> <code>clerkId: 1</code> (unique, sparse), <code>email: 1</code> (unique).</li>
+    <li><strong>Critical Note:</strong> The index on <code>clerkId</code> is the primary query target during middleware verification. Without an index here, every protected API call would trigger a collection scan (O(N) time complexity).</li>
+  </ul>
+
+  <h3>2. Session Collection (<code>backend/src/models/Session.js</code>)</h3>
+  <pre>
+const sessionSchema = new mongoose.Schema({
+  problem: { type: String, required: true },
+  difficulty: { type: String, enum: ["easy", "medium", "hard"], required: true },
+  host: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  participant: { type: mongoose.Schema.Types.ObjectId, ref: "User", default: null },
+  status: { type: String, enum: ["active", "completed"], default: "active" },
+  callId: { type: String, default: "" }
+}, { timestamps: true });
+  </pre>
+  <ul>
+    <li><strong>Relationships:</strong> <code>host</code> and <code>participant</code> store 12-byte BSON ObjectIds referencing documents in the <code>User</code> collection.</li>
+    <li><strong>Population Query:</strong>
+      <code>Session.find({ status: "active" }).populate("host", "name profileImage email clerkId").populate("participant", "name profileImage email clerkId").sort({ createdAt: -1 }).limit(20);</code>
+    </li>
+  </ul>
+
+  <h2>Database Interview Questions & Answers</h2>
+  <div class="callout">
+    <strong>Q: Why MongoDB over PostgreSQL for this project?</strong><br>
+    <em>"MongoDB provided schema flexibility during rapid prototyping of session attributes. However, because our sessions enforce relational foreign-key integrity between hosts and participants, a relational database like PostgreSQL with strict foreign keys and ACID cascade deletes would be the superior enterprise choice to prevent orphan session references."</em>
+  </div>
+
+  <!-- SECTION 10: APIS -->
+  <div class="page-break"></div>
+  <h1>10. REST API Specification</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Route</th>
+        <th>Auth</th>
+        <th>Payload / Params</th>
+        <th>Success</th>
+        <th>Error Codes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>GET</code></td>
+        <td><code>/health</code></td>
+        <td>Public</td>
+        <td>None</td>
+        <td>200 OK</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td><code>POST</code></td>
+        <td><code>/api/sessions</code></td>
+        <td>JWT</td>
+        <td><code>{ problem, difficulty }</code></td>
+        <td>201 Created</td>
+        <td>400, 401, 404, 500</td>
+      </tr>
+      <tr>
+        <td><code>GET</code></td>
+        <td><code>/api/sessions/active</code></td>
+        <td>JWT</td>
+        <td>None</td>
+        <td>200 OK</td>
+        <td>401, 500</td>
+      </tr>
+      <tr>
+        <td><code>GET</code></td>
+        <td><code>/api/sessions/my-recent</code></td>
+        <td>JWT</td>
+        <td>None</td>
+        <td>200 OK</td>
+        <td>401, 500</td>
+      </tr>
+      <tr>
+        <td><code>GET</code></td>
+        <td><code>/api/sessions/:id</code></td>
+        <td>JWT</td>
+        <td><code>id</code> (Session ObjectId)</td>
+        <td>200 OK</td>
+        <td>401, 404, 500</td>
+      </tr>
+      <tr>
+        <td><code>POST</code></td>
+        <td><code>/api/sessions/:id/join</code></td>
+        <td>JWT</td>
+        <td><code>id</code> (Session ObjectId)</td>
+        <td>200 OK</td>
+        <td>400, 401, 404, 409</td>
+      </tr>
+      <tr>
+        <td><code>POST</code></td>
+        <td><code>/api/sessions/:id/end</code></td>
+        <td>JWT</td>
+        <td><code>id</code> (Session ObjectId)</td>
+        <td>200 OK</td>
+        <td>400, 401, 403, 404</td>
+      </tr>
+      <tr>
+        <td><code>GET</code></td>
+        <td><code>/api/chat/token</code></td>
+        <td>JWT</td>
+        <td>None</td>
+        <td>200 OK</td>
+        <td>401, 500</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 11: SECURITY -->
+  <div class="page-break"></div>
+  <h1>11. Authentication, Authorization & Security</h1>
+
+  <h2>Authentication Implementation</h2>
+  <ul>
+    <li><strong>Client-Side:</strong> Managed by Clerk React. On mount, Clerk loads session credentials into memory. The custom Axios interceptor in <code>frontend/src/lib/axios.js</code> attaches <code>Authorization: Bearer &lt;clerk_jwt&gt;</code> to every outgoing HTTP request.</li>
+    <li><strong>Server-Side:</strong> Evaluated via <code>@clerk/express</code> in <code>backend/src/middleware/protectRoute.js</code>. <code>requireAuth()</code> cryptographically verifies the token using Clerk's public JWKS endpoint.</li>
+  </ul>
+
+  <h2>Authorization Implementation</h2>
+  <ul>
+    <li><strong>Host Ownership Enforcement:</strong> In <code>sessionController.js:endSession</code>, the route verifies:
+      <code>if (session.host.toString() !== req.user._id.toString()) return res.status(403).json({ message: "Only the host can end the session" });</code>
+    </li>
+    <li><strong>Self-Join Prevention:</strong> In <code>joinSession</code>, host cannot participate in their own room:
+      <code>if (session.host.toString() === userId.toString()) return res.status(400).json({ message: "Host cannot join their own session as participant" });</code>
+    </li>
+  </ul>
+
+  <h2>Security Vulnerabilities & Production Improvements</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Vulnerability</th>
+        <th>Current State</th>
+        <th>Recommended Production Fix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Rate Limiting</strong></td>
+        <td>No rate limiting on <code>POST /api/sessions</code>.</td>
+        <td>Implement <code>express-rate-limit</code> with Redis backing (max 5 sessions / hour / IP).</td>
+      </tr>
+      <tr>
+        <td><strong>Input Validation</strong></td>
+        <td>Basic manual checks (<code>!problem || !difficulty</code>).</td>
+        <td>Implement <strong>Zod</strong> schemas to validate string lengths, enums, and sanitize malicious payloads.</td>
+      </tr>
+      <tr>
+        <td><strong>Compiler Exposure</strong></td>
+        <td>Direct client call to Piston API.</td>
+        <td>Proxy compilation through backend microservice with token-bucket rate limiting.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 12 & 13 -->
+  <div class="page-break"></div>
+  <h1>12. Error Handling & Edge Cases</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Failure Scenario</th>
+        <th>How Codebase Handles It</th>
+        <th>User Experience</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>User Missing from DB</strong></td>
+        <td><code>protectRoute.js</code> detects missing record, fetches from Clerk API, and auto-provisions JIT.</td>
+        <td>Seamless transition; zero "User not found" error toasts.</td>
+      </tr>
+      <tr>
+        <td><strong>3rd Participant Joins</strong></td>
+        <td><code>joinSession</code> detects <code>session.participant != null</code>, returns HTTP 409 Conflict.</td>
+        <td>Button displays "Full", disabled; toast notifies "Session is full".</td>
+      </tr>
+      <tr>
+        <td><strong>Compilation Syntax Error</strong></td>
+        <td><code>piston.js</code> captures <code>stderr</code>, sets <code>success: false</code>.</td>
+        <td>Formatted red error message in OutputPanel; prevents test pass false-positives.</td>
+      </tr>
+      <tr>
+        <td><strong>Host Disconnects</strong></td>
+        <td>Stream Video detects WebRTC peer drop; room remains in DB until explicitly ended.</td>
+        <td>Other participant stays in room; auto-reconnects if host refreshes browser.</td>
+      </tr>
+      <tr>
+        <td><strong>Host Ends Session</strong></td>
+        <td>Controller sets status to <code>completed</code>; deletes Stream call & channel.</td>
+        <td>Participant's 5s polling hook detects <code>status === "completed"</code>, auto-redirects to dashboard.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>13. Performance & Scalability Analysis</h1>
+
+  <h2>Current Performance Bottlenecks</h2>
+  <ol>
+    <li><strong>Client Polling (<code>refetchInterval: 5000</code>):</strong> In <code>SessionPage.jsx</code>, every connected user polls the database every 5 seconds. If 1,000 concurrent rooms are active, that creates 400 read requests per second to MongoDB.
+      <br><strong>Solution:</strong> Replace polling with WebSocket event emissions or Server-Sent Events (SSE).
+    </li>
+    <li><strong>Monaco Editor Bundle Footprint:</strong> Monaco is a heavy bundle (~2.4MB minified).
+      <br><strong>Solution:</strong> Use dynamic imports (<code>React.lazy()</code>) so the Monaco chunk is only loaded when entering <code>/problem/:id</code> or <code>/session/:id</code>, keeping the landing page load under 150KB.
+    </li>
+    <li><strong>Database Indexing:</strong> As sessions scale into millions of records, querying active sessions requires a compound index:
+      <code>sessionSchema.index({ status: 1, createdAt: -1 });</code>
+    </li>
+  </ol>
+
+  <!-- SECTION 14 & 15 -->
+  <div class="page-break"></div>
+  <h1>14. Testing Strategy</h1>
+  <p>Currently, the application relies on build-time verification (<code>vite build</code>), static analysis (ESLint), and manual integration testing. In a senior engineering interview, outline the ideal automated test pyramid:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Testing Layer</th>
+        <th>Target Area</th>
+        <th>Proposed Tools</th>
+        <th>Key Test Cases</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Unit Tests</strong></td>
+        <td><code>protectRoute.js</code><br><code>utils.js</code></td>
+        <td>Vitest / Jest</td>
+        <td>1. Mock Clerk API returning valid user -> DB upsert succeeds.<br>2. Test difficulty badge class mapping.</td>
+      </tr>
+      <tr>
+        <td><strong>Integration Tests</strong></td>
+        <td><code>/api/sessions</code> routes</td>
+        <td>Supertest + MongoMemoryServer</td>
+        <td>1. Prevent non-host from ending session.<br>2. Prevent 3rd participant from joining full room.</td>
+      </tr>
+      <tr>
+        <td><strong>E2E Tests</strong></td>
+        <td>Full Interview Lifecycle</td>
+        <td>Playwright</td>
+        <td>Two headless browser instances: Host creates session, Candidate joins, both verify video call mounted.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>15. Deployment & Production Operations</h1>
+  <ul>
+    <li><strong>Frontend Hosting:</strong> Vercel or Netlify serving static assets via CDN edge servers.</li>
+    <li><strong>Backend Hosting:</strong> Render, Railway, or AWS ECS running Node.js with PM2 process manager in cluster mode.</li>
+    <li><strong>Environment Variables:</strong>
+      <ul>
+        <li><code>CLERK_PUBLISHABLE_KEY</code> / <code>CLERK_SECRET_KEY</code> (Authentication keys).</li>
+        <li><code>STREAM_API_KEY</code> / <code>STREAM_API_SECRET</code> (Media streaming keys).</li>
+        <li><code>DB_URL</code> (MongoDB Atlas connection string with connection pooling).</li>
+        <li><code>CLIENT_URL</code> (Explicit frontend origin allowed in CORS policy).</li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- SECTION 16 & 17 -->
+  <div class="page-break"></div>
+  <h1>16. Brutal Weakness Analysis & Defenses</h1>
+
+  <h2>Weakness 1: Code in Monaco Editor is Not Synchronized in Real Time</h2>
+  <ul>
+    <li><strong>The Issue:</strong> While video and chat are real-time, the code editor state is currently local to each user's browser. Keystrokes are not shared over WebSockets.</li>
+    <li><strong>How to Answer in an Interview:</strong>
+      <div class="callout-speech">
+        <em>"In this version, our real-time media layer (WebRTC video and chat) is fully synchronized via Stream, but the Monaco editor state is maintained in local component state. My immediate technical roadmap includes integrating <strong>Yjs</strong> with a WebSocket server or Stream's custom data channels. Yjs uses Conflict-free Replicated Data Types (CRDTs) to support seamless, collaborative Google Docs-style editing without keystroke collisions."</em>
+      </div>
+    </li>
+  </ul>
+
+  <h2>Weakness 2: Code Execution is Called Directly from Browser to Piston</h2>
+  <ul>
+    <li><strong>The Issue:</strong> <code>frontend/src/lib/piston.js</code> calls the public Piston API directly.</li>
+    <li><strong>How to Answer in an Interview:</strong>
+      <div class="callout-speech">
+        <em>"We currently delegate compilation directly from the client to reduce server-hop latency during MVP testing. For an enterprise deployment, I would proxy this request through our Express backend, allowing us to enforce Redis-based rate limiting per user ID, sanitize input, and prevent third-party API key scraping."</em>
+      </div>
+    </li>
+  </ul>
+
+  <h1>17. The 90-Second Master Walkthrough Speech</h1>
+  <div class="callout-speech">
+    <strong>Verbatim Interview Response:</strong><br>
+    <em>"I built Talent IQ to solve a real friction point in technical interviews: candidates and interviewers constantly context-switching between Zoom, shared Google Docs, and local terminal compilers.
+    <br><br>
+    I architected Talent IQ as an all-in-one technical interview workspace. On the frontend, I used React 19, Vite, Tailwind CSS, and DaisyUI. I integrated the Monaco Editor for a true VSCode-like editing surface and Stream Video SDK for low-latency WebRTC video and chat.
+    <br><br>
+    On the backend, I built RESTful microservices in Express 5 backed by MongoDB Atlas. Authentication is handled via Clerk with cryptographically signed JWTs attached through an Axios request interceptor. One particular challenge I solved was eliminating race conditions between Clerk's identity service and our database: I built a Just-In-Time self-healing middleware that automatically provisions missing database profiles on the fly if webhook deliveries fail.
+    <br><br>
+    For code compilation, we delegate execution to Piston's isolated Docker sandbox to test JavaScript, Python, and Java test cases safely. We also enforce strict 1-on-1 room locks so only the host and one participant can join a room.
+    <br><br>
+    This project gave me deep experience managing distributed auth state, orchestrating real-time media, and building resilient split-pane desktop and mobile user interfaces."</em>
+  </div>
+
+  <!-- SECTION 18: LIKELY QUESTIONS -->
+  <div class="page-break"></div>
+  <h1>18. Likely Interview Questions & Answers</h1>
+
+  <h2>Beginner Questions</h2>
+  <div class="callout">
+    <strong>Q: What is the purpose of the Axios interceptor in your frontend?</strong><br>
+    <em>"The Axios request interceptor intercepts every outgoing HTTP request before it leaves the browser. It retrieves the latest session JWT from Clerk and sets the <code>Authorization: Bearer &lt;token&gt;</code> header automatically. This centralizes authentication logic and ensures no API call fails due to missing tokens."</em>
+  </div>
+
+  <div class="callout">
+    <strong>Q: How do you prevent unauthorized users from accessing the dashboard?</strong><br>
+    <em>"In <code>App.jsx</code>, we use Clerk's <code>useUser()</code> hook to verify <code>isSignedIn</code>. If the user is unauthenticated, React Router's <code>&lt;Navigate to='/' /&gt;</code> redirects them back to the landing page. On the backend, <code>protectRoute.js</code> validates the JWT signature; unauthenticated requests are rejected with HTTP 401 Unauthorized."</em>
+  </div>
+
+  <h2>Intermediate Questions</h2>
+  <div class="callout">
+    <strong>Q: How does the backend enforce that only the host can end a session?</strong><br>
+    <em>"In <code>sessionController.js:endSession</code>, the middleware attaches the authenticated user document to <code>req.user</code>. The controller queries the session document by ID, and executes:
+    <code>if (session.host.toString() !== req.user._id.toString()) return res.status(403).json({ message: 'Only the host can end the session' });</code>
+    This guarantees that participants cannot terminate active interview rooms."</em>
+  </div>
+
+  <div class="callout">
+    <strong>Q: How does your UI handle code execution test feedback?</strong><br>
+    <em>"In <code>ProblemPage.jsx</code>, when Piston returns stdout, the client executes <code>checkIfTestsPassed</code>. It normalizes both the actual output and expected output by stripping whitespace, bracket padding, and trailing newlines. If they match, it triggers a confetti animation via <code>canvas-confetti</code> and renders a success toast; if they differ, it displays an error toast prompting the candidate to review their output."</em>
+  </div>
+
+  <h2>Advanced / Tricky Questions</h2>
+  <div class="callout">
+    <strong>Q: Why did you choose TanStack Query over Redux Toolkit?</strong><br>
+    <em>"Redux is built for synchronous client UI state, which requires writing dozens of boilerplate action creators, reducers, and thunks to manage async server data. TanStack Query is purpose-built for server state: it handles background caching, automated refetching intervals, window focus revalidation, and mutation states out of the box with zero boilerplate."</em>
+  </div>
+
+  <!-- SECTION 19: FOLLOW-UP BATTLECARDS -->
+  <div class="page-break"></div>
+  <h1>19. Deep-Dive Cross-Questioning Battlecards</h1>
+
+  <div class="callout-warning">
+    <strong>Scenario 1: Interviewer asks "Why did you use Express 5 instead of Express 4?"</strong><br>
+    <em>"Express 5 natively handles rejected promises in route handlers and middleware. In Express 4, an unhandled async error would cause the process to hang or crash unless explicitly wrapped in try/catch or an async handler helper. Express 5 also supports modern path-to-regexp syntax."</em>
+  </div>
+
+  <div class="callout-warning">
+    <strong>Scenario 2: Interviewer asks "What happens if MongoDB Atlas goes down during a live video call?"</strong><br>
+    <em>"Because our video call and chat streams are routed directly through Stream's WebRTC infrastructure, an active call will continue functioning without interruption! However, session state operations—like ending the session or saving completed statuses to the database—would fail with a 500 error until database connectivity is restored."</em>
+  </div>
+
+  <div class="callout-warning">
+    <strong>Scenario 3: Interviewer asks "How would you prevent a candidate from cheating or running malicious code?"</strong><br>
+    <em>"Because user code is executed on Piston's isolated sandbox, the host operating system is completely isolated. Piston sets strict cgroup boundaries: network access is disabled inside the container, execution runtime is capped at 5 seconds to prevent infinite loops, and memory is constrained to 256MB to prevent fork-bombs and memory overflow attacks."</em>
+  </div>
+
+  <!-- SECTION 20: CHECKLIST -->
+  <div class="page-break"></div>
+  <h1>20. TOP 20 Things You MUST Know Checklist</h1>
+  <p>Review this checklist 30 minutes before your interview:</p>
+
+  <div class="checklist-item"><input type="checkbox"> 1. <strong>Ports:</strong> Frontend runs on <code>http://localhost:5173</code>; Backend runs on <code>http://localhost:3000</code>.</div>
+  <div class="checklist-item"><input type="checkbox"> 2. <strong>Axios Interceptor:</strong> Located in <code>frontend/src/lib/axios.js</code>; dynamically attaches Clerk JWT Bearer token.</div>
+  <div class="checklist-item"><input type="checkbox"> 3. <strong>Middleware Gatekeeper:</strong> <code>backend/src/middleware/protectRoute.js</code> verifies JWT and contains JIT provisioning.</div>
+  <div class="checklist-item"><input type="checkbox"> 4. <strong>JIT Self-Healing:</strong> Fetches user from <code>clerkClient.users.getUser()</code> if not found in MongoDB.</div>
+  <div class="checklist-item"><input type="checkbox"> 5. <strong>Models:</strong> Only two collections: <code>User</code> (name, email, clerkId, profileImage) and <code>Session</code> (problem, difficulty, host, participant, status, callId).</div>
+  <div class="checklist-item"><input type="checkbox"> 6. <strong>Session Status Enum:</strong> Has two valid states: <code>"active"</code> and <code>"completed"</code>.</div>
+  <div class="checklist-item"><input type="checkbox"> 7. <strong>1-on-1 Limit:</strong> <code>sessionController.joinSession</code> returns HTTP 409 Conflict if participant is already assigned.</div>
+  <div class="checklist-item"><input type="checkbox"> 8. <strong>Authorization Check:</strong> Only the room host can trigger <code>endSession</code> (returns 403 Forbidden otherwise).</div>
+  <div class="checklist-item"><input type="checkbox"> 9. <strong>Coordinated Cleanup:</strong> <code>endSession</code> deletes the Stream Video call, deletes the Stream Chat channel, and sets MongoDB status to completed.</div>
+  <div class="checklist-item"><input type="checkbox"> 10. <strong>Stream Token Factory:</strong> <code>chatController.getStreamToken</code> calls <code>chatClient.createToken(req.user.clerkId)</code>.</div>
+  <div class="checklist-item"><input type="checkbox"> 11. <strong>Code Execution Sandbox:</strong> Calls Piston API directly at <code>https://emkc.org/api/v2/piston/execute</code>.</div>
+  <div class="checklist-item"><input type="checkbox"> 12. <strong>Languages Supported:</strong> JavaScript (Node 18.15.0), Python (3.10.0), Java (15.0.2).</div>
+  <div class="checklist-item"><input type="checkbox"> 13. <strong>Static Problem Database:</strong> Stored in memory in <code>frontend/src/data/problems.js</code>.</div>
+  <div class="checklist-item"><input type="checkbox"> 14. <strong>Client-Side Polling:</strong> <code>useSessionById</code> uses <code>refetchInterval: 5000</code> to detect room completion and participant joins.</div>
+  <div class="checklist-item"><input type="checkbox"> 15. <strong>Editor Package:</strong> Powered by Microsoft's <code>@monaco-editor/react</code>.</div>
+  <div class="checklist-item"><input type="checkbox"> 16. <strong>Stream Packages:</strong> <code>@stream-io/video-react-sdk</code> (video) and <code>stream-chat-react</code> (chat).</div>
+  <div class="checklist-item"><input type="checkbox"> 17. <strong>Responsive Split Panels:</strong> Uses <code>react-resizable-panels</code>; switches to vertical direction on screens &lt; 1024px.</div>
+  <div class="checklist-item"><input type="checkbox"> 18. <strong>CORS Strategy:</strong> Configured in <code>server.js</code> with credentials enabled and dynamic origin allowlist.</div>
+  <div class="checklist-item"><input type="checkbox"> 19. <strong>Honest Editor Limitation:</strong> Video and chat are real-time; Monaco editor is currently local per participant (Yjs CRDT on roadmap).</div>
+  <div class="checklist-item"><input type="checkbox"> 20. <strong>Elevator Pitch Mastery:</strong> Know the 90-second walkthrough verbatim (Section 17).</div>
+
+</body>
+</html>
