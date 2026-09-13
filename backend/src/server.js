@@ -27,6 +27,8 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://127.0.0.1:5173",
   "http://127.0.0.1:3000",
+  "https://talent-iq-git-main-ankits-projects-f207692b.vercel.app",
+  "https://talent-6j8drimlj-ankits-projects-f207692b.vercel.app",
 ].filter(Boolean);
 
 app.use(
