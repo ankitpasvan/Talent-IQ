@@ -1,7 +1,15 @@
 import axios from "axios";
 
+// const axiosInstance = axios.create({
+//   baseURL: import.meta.env.VITE_API_URL || (import.meta.env.MODE === "development" ? "https://talent-iq-backend-s8i5.onrender.com/api" : "/api"),
+//   withCredentials: true,
+// });
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || (import.meta.env.MODE === "development" ? "https://talent-iq-backend-s8i5.onrender.com/api" : "/api"),
+  baseURL:
+    import.meta.env.VITE_API_URL ||
+    (import.meta.env.MODE === "development"
+      ? "http://localhost:3000/api"
+      : "https://talent-iq-backend-s8i5.onrender.com/api"),
   withCredentials: true,
 });
 
